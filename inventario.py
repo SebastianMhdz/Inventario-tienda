@@ -8,13 +8,16 @@ inventario = {}
 
 def agregar_producto(codigo, nombre, precio, cantidad):
     """Agrega un producto nuevo a la estructura de inventario."""
+    if precio < 0 or cantidad < 0:
+        print("Error: el precio y la cantidad no pueden ser negativos.")
+        return
+
     inventario[codigo] = {
         "nombre": nombre,
         "precio": precio,
         "cantidad": cantidad,
     }
     print(f"Producto '{nombre}' agregado con éxito.")
-
 
 def actualizar_stock(codigo, cantidad_nueva):
     """Actualiza la cantidad en stock de un producto ya registrado."""
